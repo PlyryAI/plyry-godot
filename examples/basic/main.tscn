@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/plyry/plyry_client.gd" id="1_client"]
+[ext_resource type="Script" path="res://addons/plyry/ui/plyry_account_panel.gd" id="2_panel"]
+[ext_resource type="Theme" path="res://addons/plyry/themes/plyry_account_panel_theme.tres" id="3_theme"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlyryClient" type="Node" parent="."]
+script = ExtResource("1_client")
+app_name = "Plyry Godot Example"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlyryAccountPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+script = ExtResource("2_panel")
+client_path = NodePath("../../PlyryClient")
+custom_theme = ExtResource("3_theme")
